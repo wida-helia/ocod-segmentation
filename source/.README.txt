@@ -1,0 +1,87 @@
+1. Eksplorasi
+
+- area.m
+    fungsi: menghitung ukuran bounding box terkecil serta luas gambar biner
+    input: gambar biner referensi
+    output: ukuran bounding box terkecil dan luas gambar
+
+- hist.m
+    fungsi: menampilkan histogram overlay dari histogram gambar dengan histogram OD pada masing-masing kanal
+    input: file gambar RGB, gambar biner OD untuk cropping
+    output: histogram overlay, nilai minimum threshold
+
+- hist_OC.m
+    fungsi: menampilkan histogram overlay dari histogram OD dengan histogram OC pada masing-masing kanal
+    input: file gambar RGB, gambar biner OD dan OC untuk cropping
+    output: histogram overlay, nilai minimum threshold
+
+2. Segmentasi dan Post-Processing OD
+
+- lokalisasi.m 
+    fungsi: melakukan lokalisasi citra fundus menggunakan projection
+    input: citra RGB, citra referensi untuk histogram matching
+    outpu: citra lokalisasi
+
+- persenOD.m 
+    fungsi: menghitung OD pada hasil lokalisasi
+    input: gambar lokalisasi
+    output: %OD 
+
+- segmenOD.m 
+    fungsi: melakukan segmentasi optical disk
+    input: gambar hasil lokalisasi
+    output: segmentasi OD
+
+3. Segmentasi dan Post-Processing OC
+
+- segmenOC.m 
+    fungsi: melakukan segmentasi optical cup
+    input: gambar hasil lokalisasi
+    output: hasil segmentasi
+
+4. Fungsi tambahan
+
+- fscore.m 
+    fungsi untuk menghitung f-score dan membuat gambar hasil segmentasi
+    input: gambar segmentasi dan gambar referensi
+    output: TP, FP, FN, f-score, gambar hasil segmentasi
+
+- openBinary.m 
+    fungsi: membuka images binary
+    input: kode gambar, mode (training atau testing), jenis (OD atau OC)
+    output: file gambar binary
+
+- openimages.m 
+    fungsi: membuka image RGB
+    input: input kode gambar dan mode (training atau testing)
+    output: output file gambar
+
+- openLocImage.m
+    fungsi: membuka image hasil lokalisasi
+    input: input kode dan mode (training atau testing)
+    output: file gambar lokalisasi
+
+- openResultImage.m
+    fungsi: membuka image hasil segmentasi
+    input: input kode, mode, dan jenis
+    output: gambar hasil segmentasi
+
+- checkEllipse.m
+    fungsi: cek apakah bentuk merupakan ellipse atau bukan
+    input: citra biner
+    output: boolean menyatakan elips atau bukan serta eccentricity
+
+- circlefit.m 
+    fungsi untuk membuat lingkaran berdasarkan input binary image hasil Segmentasi
+    input: binary image hasil Segmentasi
+    output: image hasil circlefit
+    
+- ellipsfit.m 
+    fungsi: melakukan ellips fitting menggunakan Hough Transform
+    input: gambar biner hasil segmentasi
+    output: gambar binar hasil ellips fitting
+
+- findThreshold.m 
+    fungsi: menemukan threshold dari suatu array
+    input: array
+    output: index pertama array terisi
